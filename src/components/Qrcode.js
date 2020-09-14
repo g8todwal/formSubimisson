@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import Qr from "./qrcode.png";
 import { Link } from "react-router-dom";
 import QRCode from "qrcode.react";
 import "../qrcode.css";
