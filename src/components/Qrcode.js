@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Qr from "./qrcode.png";
 import { Link } from "react-router-dom";
+import QRCode from "qrcode.react";
+import "../qrcode.css";
 
 const Qrcode = ({ form }) => {
   const [code, setCode] = useState("");
@@ -29,13 +31,20 @@ const Qrcode = ({ form }) => {
         <div>
           <div className="imgQr">
             <h2>Please scan the QR code & Enter the code</h2>
-            <img src={Qr} className="imageQr" alt="qr" />
+            <QRCode
+              value={form.aadharcard}
+              id={1}
+              size={290}
+              level={"H"}
+              className="qrcode"
+            />
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <label>Enter Your Code Here</label>
             <input
               name="code"
-              ref={register({ required: true, minLength: 9, maxLength: 9 })}
+              type="number"
+              ref={register({ required: true, minLength: 12, maxLength: 12 })}
             />
             {errors.code && errors.code.type === "required" && (
               <p>Code is required for Submission</p>
