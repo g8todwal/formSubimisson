@@ -8,8 +8,13 @@ const Main = ({ formSubmit }) => {
 
   const onSubmit = (data) => {
     formSubmit(data);
-    console.log(data);
+    console.log("Data>>>>", data);
     alert("Now click on verify to procced further");
+    localStorage.setItem("Information about user: ", JSON.stringify(data));
+    localStorage.setItem(
+      "File uploaded by user: ",
+      JSON.stringify(data.upload)
+    );
   };
 
   return (
@@ -65,7 +70,7 @@ const Main = ({ formSubmit }) => {
           <p>Email is invalid</p>
         )}
 
-        <label>AadharCard No.</label>
+        <label>Aadhar Card No.</label>
         <input
           name="aadharcard"
           type="number"
@@ -93,8 +98,22 @@ const Main = ({ formSubmit }) => {
           <p>PAN is invalid</p>
         )}
 
-        <label>Any more number you want to enter</label>
-        <textarea name="about you" ref={register} />
+        <label>Should your cards be cofidential?? </label>
+        <input
+          name="prefrences"
+          type="text"
+          ref={register({ required: true, minLength: 2, maxLength: 3 })}
+          placeholder="Yes or No"
+        />
+        {errors.prefrences && errors.prefrences.type === "required" && (
+          <p>Prefrences are required</p>
+        )}
+        {errors.prefrences &&
+          (errors.prefrences.type === "minLength" ||
+            errors.prefrences.type === "maxLength") && <p>Yes or No only!</p>}
+
+        <label>Upload your file: </label>
+        <input name="upload" type="file" ref={register} />
 
         <section className="btnSubmit">
           <input type="submit" />

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import "../login.css";
 import { auth } from "./Firebase.js";
 
-const Login = () => {
+const Login = ({ aadharSubmit }) => {
   const history = useHistory();
   const [aadhar, setAadhar] = useState("");
   const [password, setPassword] = useState("");
@@ -18,6 +18,9 @@ const Login = () => {
         history.push("/form");
       })
       .catch((e) => alert(e.message));
+
+    aadharSubmit(aadhar);
+    localStorage.setItem("AadharCard No: ", aadhar);
   };
 
   const register = (e) => {
@@ -29,6 +32,8 @@ const Login = () => {
         history.push("/form");
       })
       .catch((e) => alert(e.message));
+    aadharSubmit(aadhar);
+    localStorage.setItem("AadharCard No: ", aadhar);
   };
 
   return (

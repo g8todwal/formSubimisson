@@ -10,11 +10,17 @@ import { auth } from "./components/Firebase";
 function App() {
   const [form, setForm] = useState("");
   const [user, setUser] = useState("");
+  const [aadhar, setAadhar] = useState("");
 
   const formSubmit = (data) => {
     setForm(data);
   };
   console.log(form);
+
+  const aadharSubmit = (aadhar) => {
+    setAadhar(aadhar);
+  };
+  console.log(aadhar);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -37,7 +43,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Login />
+            <Login aadharSubmit={aadharSubmit} />
           </Route>
           <Route exact path="/form">
             <Main formSubmit={formSubmit} />
