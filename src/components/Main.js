@@ -9,7 +9,7 @@ const Main = ({ formSubmit }) => {
   const onSubmit = (data) => {
     formSubmit(data);
     console.log(data);
-    alert("Now cick on verify to procced further");
+    alert("Now click on verify to procced further");
   };
 
   return (
