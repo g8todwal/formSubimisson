@@ -15,7 +15,7 @@ const Main = ({ formSubmit }) => {
   return (
     <div>
       <form className="App" onSubmit={handleSubmit(onSubmit)}>
-        <h1>Sign Up</h1>
+        <h1>Form</h1>
 
         <label>First Name:</label>
         <input
