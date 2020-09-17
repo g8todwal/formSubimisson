@@ -6,21 +6,16 @@ import Qrcode from "./components/Qrcode";
 import { BrowserRouter } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 import { auth } from "./components/Firebase";
+import Dash from "./components/Dashboard";
 
 function App() {
   const [form, setForm] = useState("");
   const [user, setUser] = useState("");
-  const [aadhar, setAadhar] = useState("");
 
   const formSubmit = (data) => {
     setForm(data);
   };
   console.log(form);
-
-  const aadharSubmit = (aadhar) => {
-    setAadhar(aadhar);
-  };
-  console.log(aadhar);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -43,12 +38,15 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Login aadharSubmit={aadharSubmit} />
+            <Login />
           </Route>
           <Route exact path="/form">
             <Main formSubmit={formSubmit} />
           </Route>
           <Route exact path="/next">
+            <Dash form={form} />
+          </Route>
+          <Route exact path="/verify">
             <Qrcode form={form} />
           </Route>
         </Switch>

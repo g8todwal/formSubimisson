@@ -5,7 +5,6 @@ import { auth } from "./Firebase.js";
 
 const Login = ({ aadharSubmit }) => {
   const history = useHistory();
-  const [aadhar, setAadhar] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
@@ -18,9 +17,6 @@ const Login = ({ aadharSubmit }) => {
         history.push("/form");
       })
       .catch((e) => alert(e.message));
-
-    aadharSubmit(aadhar);
-    localStorage.setItem("AadharCard No: ", aadhar);
   };
 
   const register = (e) => {
@@ -32,8 +28,6 @@ const Login = ({ aadharSubmit }) => {
         history.push("/form");
       })
       .catch((e) => alert(e.message));
-    aadharSubmit(aadhar);
-    localStorage.setItem("AadharCard No: ", aadhar);
   };
 
   return (
@@ -41,13 +35,6 @@ const Login = ({ aadharSubmit }) => {
       <div className="login-container">
         <h1>Sign In</h1>
         <form>
-          <h3 className="heading_form">Aadhar Number</h3>
-          <input
-            value={aadhar}
-            type="number"
-            onChange={(e) => setAadhar(e.target.value)}
-          />
-
           <h3 className="heading_form">Email Id</h3>
           <input
             value={email}

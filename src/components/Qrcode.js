@@ -1,23 +1,12 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import React from "react";
 import { Link } from "react-router-dom";
 import QRCode from "qrcode.react";
 import "../qrcode.css";
 
 const Qrcode = ({ form }) => {
-  const [code, setCode] = useState("");
-  const { register, handleSubmit, errors } = useForm();
-
-  const onSubmit = (data) => {
-    setCode(data);
-  };
-  console.log(code);
-
   return (
     <div>
-      <h1>
-        HI..! {form?.firstName} {form?.lastName}
-      </h1>
+      <h1>HI..! {form?.name}</h1>
       {form.length === 0 && (
         <div className="formFill">
           <h2 className="fill">SUBMIT the form first</h2>
@@ -29,16 +18,17 @@ const Qrcode = ({ form }) => {
       {form.length !== 0 && (
         <div>
           <div className="imgQr">
-            <h2>Please scan the QR code & Enter the code</h2>
+            <h2>Please scan the QR code......</h2>
             <QRCode
-              value={form.aadharcard}
-              id={1}
-              size={290}
+              value={JSON.stringify(form)}
+              id={form.aadharcard}
+              size={280}
               level={"H"}
+              includeMargin={true}
               className="qrcode"
             />
           </div>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          {/* <form onSubmit={handleSubmit(onSubmit)}>
             <label>Enter Your Code Here</label>
             <input
               name="code"
@@ -58,7 +48,7 @@ const Qrcode = ({ form }) => {
           </form>
           {code.length !== 0 && (
             <h2 className="Congrats">Congratulation your data is saved..!!!</h2>
-          )}
+          )} */}
         </div>
       )}
     </div>
