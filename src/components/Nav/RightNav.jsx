@@ -40,7 +40,7 @@ const RightNav = ({ open }) => {
       <li>Add More User</li>
       <li>Transcition History</li>
       <Link to="/prefrences">
-        <li>Select Your Prefrences</li>
+        <li> Prefrences</li>
       </Link>
       <li>Contact Us</li>
     </Ul>

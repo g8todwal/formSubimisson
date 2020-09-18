@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Prefrences = () => {
   return (
@@ -9,9 +10,9 @@ const Prefrences = () => {
           <thead>
             <tr style={{ color: "white" }}>
               <th></th>
-              <th>Public</th>
-              <th>Confidential</th>
+              <th>Public </th>
               <th>Private</th>
+              <th>Confi..</th>
             </tr>
           </thead>
           <tbody>
@@ -90,6 +91,9 @@ const Prefrences = () => {
           </tbody>
         </table>
       </div>
+      <Link to="/next">
+        <button className="btn-qr">Genrate QR Code</button>
+      </Link>
     </div>
   );
 };
