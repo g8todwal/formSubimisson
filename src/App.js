@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 import { auth } from "./components/Firebase";
 import Dash from "./components/Dashboard";
+import Prefrences from "./components/Prefrences";
 
 function App() {
   const [form, setForm] = useState("");
@@ -48,6 +49,9 @@ function App() {
           </Route>
           <Route exact path="/verify">
             <Qrcode form={form} />
+          </Route>
+          <Route exact path="/prefrences">
+            <Prefrences />
           </Route>
         </Switch>
       </BrowserRouter>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Ul = styled.ul`
   list-style: none;
@@ -38,13 +39,9 @@ const RightNav = ({ open }) => {
     <Ul open={open}>
       <li>Add More User</li>
       <li>Transcition History</li>
-      <li>Select Your Prefrences</li>
-      <select name="prefrences">
-        <option>Select...</option>
-        <option value="male">Private</option>
-        <option value="female">Confidential</option>
-        <option value="others">Public</option>
-      </select>
+      <Link to="/prefrences">
+        <li>Select Your Prefrences</li>
+      </Link>
       <li>Contact Us</li>
     </Ul>
   );
