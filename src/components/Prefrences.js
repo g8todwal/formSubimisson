@@ -92,7 +92,7 @@ const Prefrences = () => {
         </table>
       </div>
       <Link to="/next">
-        <button className="btn-qr">Genrate QR Code</button>
+        <button className="btn-qr">Back to Dashboard</button>
       </Link>
     </div>
   );
