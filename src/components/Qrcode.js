@@ -20,7 +20,7 @@ const Qrcode = ({ form }) => {
           <div className="imgQr">
             <h2>Please scan the QR code......</h2>
             <QRCode
-              value={JSON.stringify(form)}
+              value={`Data of ${form.name} is:\n AadharCard-  ${form.aadharcard},\n Pan Card-  ${form.panCard}, \n Driving Lincense-  ${form.dl}, \n Address-  ${form.address} `}
               id={form.aadharcard}
               size={280}
               level={"H"}

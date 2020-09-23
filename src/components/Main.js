@@ -88,14 +88,12 @@ const Main = ({ formSubmit }) => {
 
         <label>Upload your Driving License: </label>
         <input
-          name="DL"
+          name="dl"
           ref={register({
             required: true,
           })}
         />
-        {errors.panCard && errors.panCard.type === "required" && (
-          <p>DL is required</p>
-        )}
+        {errors.dl && errors.dl.type === "required" && <p>DL is required</p>}
         <input name="uploadDL" type="file" ref={register} />
 
         <section className="btnSubmit">
