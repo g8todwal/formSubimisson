@@ -2,24 +2,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "../style.css";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
 
 const Main = ({ formSubmit }) => {
   const { register, handleSubmit, errors } = useForm();
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   const onSubmit = (data) => {
     formSubmit(data);
@@ -33,7 +18,7 @@ const Main = ({ formSubmit }) => {
       <form className="App" onSubmit={handleSubmit(onSubmit)}>
         <button className="top_btn">Scan Your Buisness Card/ID</button>
         <h1>OR</h1>
-        <label onClick={handleClickOpen}>Aadhar Card No.</label>
+        <label>Aadhar Card No.</label>
         <input
           name="aadharcard"
           type="number"
@@ -54,42 +39,6 @@ const Main = ({ formSubmit }) => {
         {errors.name && errors.name.type === "minLength" && (
           <p>Enter proper name</p>
         )}
-
-        <div>
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-          >
-            <DialogTitle id="alert-dialog-title">
-              {"Information Asked For Opening Account In HSBC"}
-            </DialogTitle>
-            <DialogContent>
-              <DialogContentText id="alert-dialog-description">
-                Confidential Information
-                <ul>
-                  <li>Name</li>
-                  <li>Address</li>
-                  <li>Pan Card</li>
-                  <li>Aadhar Card</li>
-                  <br />
-                  <strong>Documents</strong>
-                  <li>Pan Card Soft-Copy</li>
-                  <li>Aadhar Card Soft-Copy</li>
-                </ul>
-              </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose} color="primary">
-                Approve
-              </Button>
-              <Button onClick={handleClose} color="primary" autoFocus>
-                Reject
-              </Button>
-            </DialogActions>
-          </Dialog>
-        </div>
 
         <label>Address: </label>
         <input
