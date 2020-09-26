@@ -8,9 +8,9 @@ const Dash = ({ form }) => {
       <Navbar />
       {form.length === 0 && (
         <div className="formFill">
-          <h2 className="fill">SUBMIT the form first</h2>
+          <h2 className="fill">VERIFY the form first</h2>
           <Link to="/form">
-            <button>Lets Submit the form</button>
+            <button>Lets Verify the form</button>
           </Link>
         </div>
       )}
@@ -46,7 +46,7 @@ const Dash = ({ form }) => {
                 </tr>
                 <tr>
                   <td>{form?.name}'s Driving License</td>
-                  <td>{form.DL}</td>
+                  <td>{form.dl}</td>
                 </tr>
               </tbody>
             </table>

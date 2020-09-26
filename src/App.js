@@ -8,6 +8,7 @@ import { Switch, Route } from "react-router-dom";
 import { auth } from "./components/Firebase";
 import Dash from "./components/Dashboard";
 import Prefrences from "./components/Prefrences";
+import Transition from "./components/Transition";
 
 function App() {
   const [form, setForm] = useState("");
@@ -52,6 +53,9 @@ function App() {
           </Route>
           <Route exact path="/prefrences">
             <Prefrences />
+          </Route>
+          <Route exact path="/transition">
+            <Transition />
           </Route>
         </Switch>
       </BrowserRouter>

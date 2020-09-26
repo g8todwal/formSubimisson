@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import QRCode from "qrcode.react";
 import "../qrcode.css";
+import photo from "./photo.png";
 
 const Qrcode = ({ form }) => {
   return (
@@ -17,8 +18,8 @@ const Qrcode = ({ form }) => {
       )}
       {form.length !== 0 && (
         <div>
+          <img src={photo} alt="Logo" className="imgQi" />
           <div className="imgQr">
-            <h2>Please scan the QR code......</h2>
             <QRCode
               value={`Data of ${form.name} is:\n AadharCard-  ${form.aadharcard},\n Pan Card-  ${form.panCard}, \n Driving Lincense-  ${form.dl}, \n Address-  ${form.address} `}
               id={form.aadharcard}

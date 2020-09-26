@@ -37,8 +37,10 @@ const Ul = styled.ul`
 const RightNav = ({ open }) => {
   return (
     <Ul open={open}>
+      <Link to="/transition">
+        <li>Transcition History</li>
+      </Link>
       <li>Add More User</li>
-      <li>Transcition History</li>
       <Link to="/prefrences">
         <li> Prefrences</li>
       </Link>
