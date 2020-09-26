@@ -47,6 +47,13 @@ const Main = ({ formSubmit }) => {
         )}
 
         <label>Name:</label>
+        <input name="name" ref={register({ required: true, minLength: 4 })} />
+        {errors.name && errors.name.type === "required" && (
+          <p>First name is required</p>
+        )}
+        {errors.name && errors.name.type === "minLength" && (
+          <p>Enter proper name</p>
+        )}
 
         <div>
           <Dialog
@@ -83,14 +90,6 @@ const Main = ({ formSubmit }) => {
             </DialogActions>
           </Dialog>
         </div>
-
-        <input name="name" ref={register({ required: true, minLength: 4 })} />
-        {errors.name && errors.name.type === "required" && (
-          <p>First name is required</p>
-        )}
-        {errors.name && errors.name.type === "minLength" && (
-          <p>Enter proper name</p>
-        )}
 
         <label>Address: </label>
         <input
